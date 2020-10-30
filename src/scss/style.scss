@@ -1,0 +1,166 @@
+
+@import "./reset.scss";
+@import "./fonts.scss";
+@import "./media.scss";
+body {
+  background: #fff;
+  color: #3a3a3a;
+  font-size: 16px;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+
+.header{
+  background-color: #fdfdfd;;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10px;
+  position: fixed;
+  top: 0;
+  box-shadow: 0px 3px 2px #0000001f;
+  z-index: 10;
+}
+.logo{
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  font-size: 2.3rem;
+}
+
+.nav {
+  // .nav__list
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+  // .nav__item
+  &__item {
+    margin-right: 20px;
+    &::first-child{
+      margin-right: 0;
+    }
+  }
+  // .nav__link
+  &__link {
+    text-decoration: none;
+    color:#3a3a3a;
+    font-size: 1.3rem;
+  }
+  @include _600 {
+    display: none;
+  }
+}
+
+
+.sidebar{
+  position: fixed;
+  top:0;
+  right: 10px;
+  height: 100%;
+  width: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  & .slide{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    &::after {
+      content: "";
+      width: 2.1px;
+      height: 35px;
+      background-color: #3a3a3a85;
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  @include _1170 {
+    display: none;
+  }
+}
+
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.img-item{
+  margin: 20px 0;
+  box-shadow: 3px 6px 5px 1px #00000030;
+  transition: .1s linear;
+  &.text{
+    display: flex;
+    background: #fff;
+  }
+  &.text:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+  @include _768 {
+    &.text {
+      display: block;
+    }
+    & .img-c img {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      max-height: 352px;
+    }
+  }
+  @include _600 {
+    & .img-c img {
+      max-height: 230px;
+    }
+  }
+ 
+}
+.info{
+  flex: 1 0 50%;
+  align-self: center;
+  & .title{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 3.3rem;
+    text-align: center;
+  }
+  & .icon{
+    
+    background-size: cover;
+    text-align: center;
+    margin: 20px auto;
+    &.fl{
+      background-image: url("../img/fl.png");
+      width: 140px;
+      height: 63px;
+    }
+    &.fr {
+      background-image: url("../img/fr.png");
+      width: 117px;
+      height: 72px;
+    }
+  }
+  & .text{
+    padding: 0 31px;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  @include _600 {
+    & .icon-flowers{
+      width: 100px;
+      height: 45px;
+      margin: 10px auto;
+    }
+    & .text{
+      padding: 0 15px;
+      margin-bottom: 15px;
+    }
+  }
+}
